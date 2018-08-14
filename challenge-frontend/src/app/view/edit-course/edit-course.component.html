@@ -1,0 +1,47 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/home']">Inicial</a>
+      </li>
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/check_data']">Consultar dados</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Editar Curso</li>
+    </ol>
+  </nav>
+
+  <div class="jumbotron">
+    <h1>Editar Curso</h1>
+  </div>
+
+  <hr>
+
+  <form>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" class="form-control" value="Ciência da Computação">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <input type="number" class="form-control" value="0">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <input type="number" class="form-control" value="0">
+        </div>
+      </div>
+    </div>
+    
+    <button id="cancel" type="button" class="btn btn-danger" [routerLink]="['/check_data']">
+      Cancelar
+    </button>
+    <button id="add-new" type="button" class="btn btn-success">
+      Salvar
+    </button>
+
+  </form>
+</div>

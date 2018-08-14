@@ -1,0 +1,36 @@
+.container {
+    margin-top: 5%;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 3%;
+}
+
+.first-form {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+}
+
+table {
+    margin-top: 5%;
+}
+
+#grades {
+    text-align: center;
+}
+
+.btn-outline-danger {
+    margin-left: 2%;
+}
+
+#action {
+    text-align: center;
+}
+
+#nav-pag {
+    float: right;
+}

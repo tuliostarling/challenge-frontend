@@ -1,0 +1,39 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a [routerLink]="['/home']">Inicial</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Editar Instituição</li>
+    </ol>
+  </nav>
+
+  <div class="jumbotron">
+    <h1>Editar Instituição</h1>
+  </div>
+
+  <hr>
+
+  <form>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <input type="text" class="form-control" value="Fundação Mineira de Educação e Cultura">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <input type="number" class="form-control" value="0">
+        </div>
+      </div>
+    </div>
+
+    <button id="cancel" type="button" class="btn btn-danger" [routerLink]="['/home']">
+      Cancelar
+    </button>
+    <button id="add-new" type="button" class="btn btn-success">
+      Salvar
+    </button>
+
+  </form>
+</div>
