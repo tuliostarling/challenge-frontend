@@ -1,0 +1,26 @@
+.container {
+    margin-top: 5%;
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+hr {
+    margin-bottom: 3%;
+}
+
+#add-new {
+    float: right;
+    margin-top: 2%;
+}
+
+#cancel {
+    float: right;
+    margin-left: 1%;
+    margin-top: 2%;
+}
+
+#add-new-course {
+    border-radius: 20px;
+}

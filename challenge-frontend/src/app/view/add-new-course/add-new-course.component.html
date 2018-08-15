@@ -5,14 +5,14 @@
         <a [routerLink]="['/home']">Inicial</a>
       </li>
       <li class="breadcrumb-item">
-        <a [routerLink]="['/check_data']">Consultar dados</a>
+        <a [routerLink]="['/check_data']">Checar dados</a>
       </li>
-      <li class="breadcrumb-item active" aria-current="page">Editar Curso</li>
+      <li class="breadcrumb-item active" aria-current="page">Adicionar novo Curso</li>
     </ol>
   </nav>
 
   <div class="jumbotron">
-    <h1>Editar Curso</h1>
+    <h1>Adicionar novo Curso</h1>
   </div>
 
   <hr>
@@ -21,31 +21,25 @@
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label>
-            <b>Nome Curso</b>
-          </label>
-          <input type="text" class="form-control" value="Ciência da Computação">
+          <label><b>Nome Curso</b></label>
+          <input type="text" class="form-control" placeholder="Nome Curso">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label>
-            <b>Nota Curso</b>
-          </label>
-          <input type="number" class="form-control" value="0">
+            <label><b>Nota Curso</b></label>
+          <input type="number" class="form-control" placeholder="Nota Curso">
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-          <label>
-            <b>Média Alunos</b>
-          </label>
-          <input type="number" class="form-control" value="0">
+            <label><b>Média Alunos</b></label>
+          <input type="number" class="form-control" placeholder="Média Alunos">
         </div>
       </div>
     </div>
 
-    <button id="cancel" type="button" class="btn btn-danger" [routerLink]="['/check_data']">
+    <button id="cancel" type="button" class="btn btn-danger" [routerLink]="['/home']">
       Cancelar
     </button>
     <button id="add-new" type="button" class="btn btn-success">

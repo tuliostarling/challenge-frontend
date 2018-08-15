@@ -17,17 +17,35 @@
   <div class="first-form">
     <div class="row">
       <div class="col">
-        <label class="col-sm-12 col-form-label"><b>Instituição</b>
+        <label class="col-sm-12 col-form-label">
+          <b>Instituição</b>
           <input type="text" readonly class="form-control-plaintext" value="Fundação Mineira de Educação e Cultura">
         </label>
       </div>
       <div class="col">
         <div class="col">
-          <label class="col-sm-12 col-form-label"><b>Nota Geral</b>
+          <label class="col-sm-12 col-form-label">
+            <b>Nota Geral</b>
             <input type="text" readonly class="form-control-plaintext" value="0">
           </label>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div id="top-row" class="row">
+    <div class="col">
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisa" aria-label="Search">
+        <button id="btn-search" class="btn btn-primary my-2 my-sm-0" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
+      </form>
+    </div>
+    <div id="add-new" class="col">
+      <button type="button" class="btn btn-success" [routerLink]="['/add_new_course']">
+        Adicionar novo Curso
+      </button>
     </div>
   </div>
 

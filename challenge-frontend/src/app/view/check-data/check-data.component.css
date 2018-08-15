@@ -6,6 +6,14 @@
     text-align: center;
 }
 
+#top-row {
+    margin-top: 2%;
+}
+
+#add-new {
+    margin-left: 52%;
+}
+
 hr {
     margin-bottom: 3%;
 }
@@ -16,7 +24,7 @@ hr {
 }
 
 table {
-    margin-top: 5%;
+    margin-top: 1%;
 }
 
 #grades {

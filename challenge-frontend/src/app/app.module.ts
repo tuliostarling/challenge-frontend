@@ -13,6 +13,7 @@ import { CheckDataComponent } from './view/check-data/check-data.component';
 import { AddNewInstitutionComponent } from './view/add-new-institution/add-new-institution.component';
 import { EditInstitutionComponent } from './view/edit-institution/edit-institution.component';
 import { EditCourseComponent } from './view/edit-course/edit-course.component';
+import { AddNewCourseComponent } from './view/add-new-course/add-new-course.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { EditCourseComponent } from './view/edit-course/edit-course.component';
     CheckDataComponent,
     AddNewInstitutionComponent,
     EditInstitutionComponent,
-    EditCourseComponent
+    EditCourseComponent,
+    AddNewCourseComponent
   ],
   imports: [
     BrowserModule,
