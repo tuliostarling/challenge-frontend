@@ -8,11 +8,13 @@
     <div class="col">
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Pesquisa" aria-label="Search">
-        <button id="btn-search" class="btn btn-primary my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+        <button id="btn-search" class="btn btn-primary my-2 my-sm-0" type="submit">
+          <i class="fa fa-search"></i>
+        </button>
       </form>
     </div>
     <div id="add-new" class="col">
-      <button type="button" class="btn btn-success" [routerLink]="['/add_new_institution']">
+      <button type="button" class="btn btn-success" [routerLink]="['institution/add/']">
         Adicionar nova Instituição
       </button>
     </div>
@@ -27,47 +29,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td scope="row">Fundação Mineira de Educação e Cultura</td>
-        <td id="general-note">0</td>
+      <tr *ngFor="let row of rows">
+        <td scope="row"> {{ row.nome }} </td>
+        <td id="general-note"> {{ row.notageral }} </td>
         <td id="action">
-          <button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/check_data']">
+          <button type="button" class="btn btn-outline-success btn-sm" (click)="update(row['id'])">
             <i class="fa fa-eye"></i>
           </button>
-          <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/edit_institution']">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="update(row['id'])">
             <i class="fa fa-pencil-square-o"></i>
           </button>
-          <button type="button" class="btn btn-outline-danger btn-sm">
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">Pontifícia Universidade Católica</td>
-        <td id="general-note">0</td>
-        <td id="action">
-          <button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/check_data']">
-            <i class="fa fa-eye"></i>
-          </button>
-          <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/edit_institution']">
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button type="button" class="btn btn-outline-danger btn-sm">
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">Universidade Federal de Minas Gerais</td>
-        <td id="general-note">0</td>
-        <td id="action">
-          <button type="button" class="btn btn-outline-success btn-sm" [routerLink]="['/check_data']">
-            <i class="fa fa-eye"></i>
-          </button>
-          <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/edit_institution']">
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button type="button" class="btn btn-outline-danger btn-sm">
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(row['id'])">
             <i class="fa fa-trash"></i>
           </button>
         </td>

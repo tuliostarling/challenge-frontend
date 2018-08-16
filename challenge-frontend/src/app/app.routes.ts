@@ -10,9 +10,9 @@ import { AddNewCourseComponent } from './view/add-new-course/add-new-course.comp
 export const ROUTES: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
-    { path: 'check_data', component: CheckDataComponent },
-    { path: 'add_new_institution', component: AddNewInstitutionComponent },
-    { path: 'add_new_course', component: AddNewCourseComponent },
-    { path: 'edit_institution', component: EditInstitutionComponent },
-    { path: 'edit_course', component: EditCourseComponent },
-]
+    { path: 'check/instituicoes/:id', component: CheckDataComponent },
+    { path: 'institution/add/', component: AddNewInstitutionComponent },
+    { path: 'course/add/', component: AddNewCourseComponent },
+    { path: 'instituicoes/:id', component: EditInstitutionComponent },
+    { path: 'course/edit/:id', component: EditCourseComponent },
+];
