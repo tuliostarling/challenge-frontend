@@ -22,29 +22,17 @@ export class EditInstitutionComponent implements OnInit {
 
   ngOnInit() {
     this.acRoute.params.subscribe((data: any) => {
-      if (data && data.id) {
+      if (data) {
         this.apiService.get('instituicoes/' + data.id).subscribe((data: InstitutionModel) => {
           this.institution = data;
         });
-      } else {
-        this.institution = new InstitutionModel();
       }
     });
   }
 
   public onSubmit() {
-    if (this.institution.id) {
-      this.apiService.update('instituicoes/' + this.institution.id, this.institution).subscribe((r) => {
-        this.router.navigateByUrl('home');
-      });
-      // } else {
-      //   this.apiService.post('institution', this.institution).subscribe((r) => {
-      //     console.log(r);
-      //     this.institution = new InstitutionModel();
-      //     alert('Product added !');
-
-      //   });
-    }
-
+    this.apiService.update('instituicoes/' + this.institution.id, this.institution).subscribe(() => {
+      this.router.navigateByUrl('home');
+    });
   }
 }

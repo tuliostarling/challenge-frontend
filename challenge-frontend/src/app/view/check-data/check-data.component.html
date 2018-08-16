@@ -19,14 +19,14 @@
       <div class="col">
         <label class="col-sm-12 col-form-label">
           <b>Instituição</b>
-          <input type="text" readonly class="form-control-plaintext" value="Fundação Mineira de Educação e Cultura">
+          <input type="text" readonly class="form-control-plaintext" value="{{ rowsInstitution.nome }}">
         </label>
       </div>
       <div class="col">
         <div class="col">
           <label class="col-sm-12 col-form-label">
             <b>Nota Geral</b>
-            <input type="text" readonly class="form-control-plaintext" value="0">
+            <input type="text" readonly class="form-control-plaintext" value="{{ rowsInstitution.notageral }}">
           </label>
         </div>
       </div>
@@ -43,7 +43,7 @@
       </form>
     </div>
     <div id="add-new" class="col">
-      <button type="button" class="btn btn-success" [routerLink]="['/course/add/']">
+      <button type="button" class="btn btn-success" (click)="create(rowsInstitution.id)">
         Adicionar novo Curso
       </button>
     </div>
@@ -59,71 +59,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td scope="row">Ciência da Computação</td>
-        <td id="grades">0</td>
-        <td id="grades">0</td>
+      <tr *ngFor="let row of rowsCourses">
+        <td scope="row"> {{ row.nome }} </td>
+        <td id="grades"> {{row.notacurso}} </td>
+        <td id="grades"> {{row.mediaaluno}} </td>
         <td id="action">
-          <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/course/edit/']">
+          <button type="button" class="btn btn-outline-primary btn-sm" (click)="update(row['id'])">
             <i class="fa fa-pencil-square-o"></i>
           </button>
-          <button type="button" class="btn btn-outline-danger btn-sm">
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">Arquitetura e Urbanismo</td>
-        <td id="grades">0</td>
-        <td id="grades">0</td>
-        <td id="action">
-          <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/course/edit/']">
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button type="button" class="btn btn-outline-danger btn-sm">
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
-      </tr>
-      <tr>
-        <td scope="row">Engenharia da Computação</td>
-        <td id="grades">0</td>
-        <td id="grades">0</td>
-        <td id="action">
-          <button type="button" class="btn btn-outline-primary btn-sm" [routerLink]="['/course/edit/']">
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button type="button" class="btn btn-outline-danger btn-sm">
+          <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(row['id'])">
             <i class="fa fa-trash"></i>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
-  <nav id="nav-pag" aria-label="Page navigation example">
-    <ul class="pagination">
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-          <span class="sr-only">Previous</span>
-        </a>
-      </li>
-      <li class="page-item active">
-        <a class="page-link" href="#">1</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">2</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#">3</a>
-      </li>
-      <li class="page-item">
-        <a class="page-link" href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-          <span class="sr-only">Next</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
 </div>

@@ -17,14 +17,14 @@
 
   <hr>
 
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col">
         <div class="form-group">
           <label>
             <b>Nome Curso</b>
           </label>
-          <input type="text" class="form-control" value="Ciência da Computação">
+          <input type="text" class="form-control" [(ngModel)]="courses.nome" name="courseName" required>
         </div>
       </div>
       <div class="col">
@@ -32,7 +32,7 @@
           <label>
             <b>Nota Curso</b>
           </label>
-          <input type="number" class="form-control" value="0">
+          <input type="number" class="form-control" [(ngModel)]="courses.notacurso" name="gradeCourse" required>
         </div>
       </div>
       <div class="col">
@@ -40,7 +40,7 @@
           <label>
             <b>Média Alunos</b>
           </label>
-          <input type="number" class="form-control" value="0">
+          <input type="number" class="form-control" [(ngModel)]="courses.mediaaluno" name="student" required>
         </div>
       </div>
     </div>
@@ -48,7 +48,7 @@
     <button id="cancel" type="button" class="btn btn-danger" [routerLink]="['/check_data/']">
       Cancelar
     </button>
-    <button id="add-new" type="button" class="btn btn-success">
+    <button id="add-new" type="submit" class="btn btn-success">
       Salvar
     </button>
 

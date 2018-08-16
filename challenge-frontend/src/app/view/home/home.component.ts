@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ApiService } from '../../service/apiservice';
 import { InstitutionModel } from '../../model/institution';
+// import { CoursesModel } from '../../model/course';
 
 @Component({
   selector: 'app-home',
@@ -17,25 +18,30 @@ export class HomeComponent implements OnInit {
   ) { }
 
   public columns = ['id', 'nome', 'notageral'];
-  public rows: Array<InstitutionModel>;
+  public rowsInstitution: Array<InstitutionModel>;
+  // public rowsCourses: Array<CoursesModel>
 
   ngOnInit() {
     this.apiService.get('instituicoes').subscribe((data: InstitutionModel[]) => {
-      this.rows = data;
+      this.rowsInstitution = data;
     });
   }
 
   delete(id: string) {
     const path = 'instituicoes/' + id;
     this.apiService.delete(path).subscribe((r) => {
-      this.rows = this.rows.filter((p, i) => {
+      this.rowsInstitution = this.rowsInstitution.filter((p, i) => {
         if (Number(id) === p.id) {
           return false;
         }
         return true;
-      }, this.rows);
+      }, this.rowsInstitution);
 
     });
+  }
+
+  create() {
+    this.router.navigateByUrl('/instituicoes/add');
   }
 
   update(id: string) {
@@ -43,6 +49,6 @@ export class HomeComponent implements OnInit {
   }
 
   checkdata(id: string) {
-    this.router.navigateByUrl('check/instituicoes/' + id);
+    this.router.navigateByUrl('/cursos/' + id);
   }
 }

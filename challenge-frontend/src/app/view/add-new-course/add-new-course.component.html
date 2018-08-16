@@ -5,7 +5,7 @@
         <a [routerLink]="['/home']">Inicial</a>
       </li>
       <li class="breadcrumb-item">
-        <a [routerLink]="['/check_data/']">Checar dados</a>
+        <a [routerLink]="['/cursos/']">Checar dados</a>
       </li>
       <li class="breadcrumb-item active" aria-current="page">Adicionar novo Curso</li>
     </ol>
@@ -17,32 +17,41 @@
 
   <hr>
 
-  <form>
+  <form (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col">
         <div class="form-group">
-          <label><b>Nome Curso</b></label>
-          <input type="text" class="form-control" placeholder="Nome Curso">
+          <label>
+            <b>Nome Curso</b>
+          </label>
+          <input type="text" class="form-control" [(ngModel)]="courses.nome" name="courseName" placeholder="Nome Curso" required>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-            <label><b>Nota Curso</b></label>
-          <input type="number" class="form-control" placeholder="Nota Curso">
+          <label>
+            <b>Nota Curso</b>
+          </label>
+          <input type="number" class="form-control" [(ngModel)]="courses.notacurso" name="gradeCourse" placeholder="Nota Curso" required>
         </div>
       </div>
       <div class="col">
         <div class="form-group">
-            <label><b>Média Alunos</b></label>
-          <input type="number" class="form-control" placeholder="Média Alunos">
+          <label>
+            <b>Média Alunos</b>
+          </label>
+          <input type="number" class="form-control" [(ngModel)]="courses.mediaaluno" name="student" placeholder="Média Alunos" required>
         </div>
+      </div>
+      <div class="form-group">
+        <input type="hidden" class="form-control" [(ngModel)]="courses.instituicao" name="insitutionName" value="{{ rowsInstitution.nome }}" required>
       </div>
     </div>
 
     <button id="cancel" type="button" class="btn btn-danger" [routerLink]="['/home']">
       Cancelar
     </button>
-    <button id="add-new" type="button" class="btn btn-success">
+    <button id="add-new" type="submit" class="btn btn-success">
       Salvar
     </button>
 
