@@ -1,6 +1,6 @@
 export class CoursesModel {
     public id: number;
-    public instituicao: string;
+    public faculdades_id: number;
     public nome: string;
     public notacurso: number;
     public mediaaluno: number;

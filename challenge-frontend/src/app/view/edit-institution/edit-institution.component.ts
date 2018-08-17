@@ -23,7 +23,7 @@ export class EditInstitutionComponent implements OnInit {
   ngOnInit() {
     this.acRoute.params.subscribe((data: any) => {
       if (data) {
-        this.apiService.get('instituicoes/' + data.id).subscribe((data: InstitutionModel) => {
+        this.apiService.get('faculdades/' + data.id).subscribe((data: InstitutionModel) => {
           this.institution = data;
         });
       }
@@ -31,7 +31,7 @@ export class EditInstitutionComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.apiService.update('instituicoes/' + this.institution.id, this.institution).subscribe(() => {
+    this.apiService.update('faculdades/' + this.institution.id, this.institution).subscribe(() => {
       this.router.navigateByUrl('home');
     });
   }

@@ -21,12 +21,10 @@ export class CheckDataComponent implements OnInit {
 
   public rowsCourses: Array<CoursesModel>;
   public rowsInstitution: Array<InstitutionModel>;
-  filteredItems: any;
-
+  
   ngOnInit() {
     this.apiService.get('cursos').subscribe((data: CoursesModel[]) => {
       this.rowsCourses = data;
-      console.log(this.rowsCourses);
     });
 
     this.getInstitution();
@@ -34,8 +32,9 @@ export class CheckDataComponent implements OnInit {
 
   getInstitution() {
     this.acRoute.params.subscribe((dataParam: any) => {
-      this.apiService.get('instituicoes/' + dataParam.id).subscribe((data: InstitutionModel[]) => {
+      this.apiService.get('faculdades/' + dataParam.id).subscribe((data: InstitutionModel[]) => {
         this.rowsInstitution = data;
+        console.log(this.rowsInstitution);
       });
     });
   }
@@ -51,10 +50,6 @@ export class CheckDataComponent implements OnInit {
       }, this.rowsCourses);
 
     });
-  }
-
-  create(id: string) {
-    this.router.navigateByUrl('cursos/add/' + id);
   }
 
   update(id: string) {

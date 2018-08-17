@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 
 import { ApiService } from '../../service/apiservice';
 import { InstitutionModel } from '../../model/institution';
+import { CoursesModel } from '../../model/course';
 // import { CoursesModel } from '../../model/course';
 
 @Component({
@@ -19,16 +20,24 @@ export class HomeComponent implements OnInit {
 
   public columns = ['id', 'nome', 'notageral'];
   public rowsInstitution: Array<InstitutionModel>;
-  // public rowsCourses: Array<CoursesModel>
+  public rowsCourses: Array<CoursesModel>
 
   ngOnInit() {
-    this.apiService.get('instituicoes').subscribe((data: InstitutionModel[]) => {
+    this.apiService.get('faculdades').subscribe((data: InstitutionModel[]) => {
       this.rowsInstitution = data;
+    });
+
+    this.getCursos()
+  }
+
+  getCursos() {
+    this.apiService.get('cursos').subscribe((data: CoursesModel[]) => {
+      this.rowsCourses = data;
     });
   }
 
   delete(id: string) {
-    const path = 'instituicoes/' + id;
+    const path = 'faculdades/' + id;
     this.apiService.delete(path).subscribe((r) => {
       this.rowsInstitution = this.rowsInstitution.filter((p, i) => {
         if (Number(id) === p.id) {
@@ -40,12 +49,16 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  create() {
-    this.router.navigateByUrl('/instituicoes/add');
+  createInstitution() {
+    this.router.navigateByUrl('/faculdades/add');
+  }
+
+  createCourse() {
+    this.router.navigateByUrl('cursos/add/');
   }
 
   update(id: string) {
-    this.router.navigateByUrl('/instituicoes/' + id);
+    this.router.navigateByUrl('/faculdades/' + id);
   }
 
   checkdata(id: string) {

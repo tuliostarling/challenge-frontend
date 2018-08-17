@@ -27,7 +27,7 @@ export class AddNewInstitutionComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.apiService.post('instituicoes/', this.institution).subscribe(() => {
+    this.apiService.post('faculdades/', this.institution).subscribe(() => {
       this.institution = new InstitutionModel();
       this.router.navigateByUrl('home');
     });

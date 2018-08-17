@@ -11,8 +11,8 @@ export const ROUTES: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: 'cursos/:id', component: CheckDataComponent },
-    { path: 'instituicoes/add', component: AddNewInstitutionComponent },
-    { path: 'cursos/add/:id', component: AddNewCourseComponent },
-    { path: 'instituicoes/:id', component: EditInstitutionComponent },
+    { path: 'faculdades/add', component: AddNewInstitutionComponent },
+    { path: 'cursos/add/', component: AddNewCourseComponent },
+    { path: 'faculdades/:id', component: EditInstitutionComponent },
     { path: 'edit/cursos/:id', component: EditCourseComponent },
 ];

@@ -22,28 +22,33 @@ export class AddNewCourseComponent implements OnInit {
   public courses: CoursesModel = new CoursesModel();
   public rowsInstitution: Array<InstitutionModel>;
 
+  InstId: string;
+
   ngOnInit() {
-    this.acRoute.params.subscribe((data: any) => {
-      this.courses = new CoursesModel();
-    });
+    // this.acRoute.params.subscribe((data: any) => {
+    this.courses = new CoursesModel();
+    // });
 
     this.getInstitution();
   }
 
   getInstitution() {
-    this.acRoute.params.subscribe((dataParam: any) => {
-      this.apiService.get('instituicoes/' + dataParam.id).subscribe((data: InstitutionModel[]) => {
-        this.rowsInstitution = data;
-      });
+    this.apiService.get('faculdades/').subscribe((data: InstitutionModel[]) => {
+      this.rowsInstitution = data;
     });
   }
 
   public onSubmit() {
     this.apiService.post('cursos/', this.courses).subscribe(() => {
       this.courses = new CoursesModel();
-      console.log(this.courses)
       this.router.navigateByUrl('home/');
     });
+  }
+
+  change(id: string) {
+    console.log(id)
+    this.InstId = id;
+    console.log('toot');
   }
 
 }

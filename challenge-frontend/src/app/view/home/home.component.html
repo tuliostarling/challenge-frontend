@@ -7,19 +7,25 @@
   <div id="top-row" class="row">
     <div class="col">
       <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisa" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Search">
         <button id="btn-search" class="btn btn-primary my-2 my-sm-0" type="submit">
           <i class="fa fa-search"></i>
         </button>
       </form>
     </div>
-    <div id="add-new" class="col">
-      <button type="button" class="btn btn-success" (click)="create()">
-        Adicionar nova Instituição
-      </button>
+    <div id="add-new" class="row">
+      <div class="col">
+        <button type="button" class="btn btn-success" (click)="createInstitution()">
+          Adicionar nova Instituição
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-success" (click)="createCourse()">
+          Adicionar novo Curso
+        </button>
+      </div>
     </div>
   </div>
-
   <table class="table table-striped table-hover">
     <thead>
       <tr>

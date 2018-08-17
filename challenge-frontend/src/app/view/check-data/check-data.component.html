@@ -19,7 +19,7 @@
       <div class="col">
         <label class="col-sm-12 col-form-label">
           <b>Instituição</b>
-          <input type="text" readonly class="form-control-plaintext" value="{{ rowsInstitution.nome }}">
+          <input type="text" readonly class="form-control-plaintext" value="{{ rowsInstitution['nome'] }}">
         </label>
       </div>
       <div class="col">
@@ -42,11 +42,6 @@
         </button>
       </form>
     </div>
-    <div id="add-new" class="col">
-      <button type="button" class="btn btn-success" (click)="create(rowsInstitution.id)">
-        Adicionar novo Curso
-      </button>
-    </div>
   </div>
 
   <table class="table table-striped table-hover">
@@ -60,17 +55,19 @@
     </thead>
     <tbody>
       <tr *ngFor="let row of rowsCourses">
-        <td scope="row"> {{ row.nome }} </td>
-        <td id="grades"> {{row.notacurso}} </td>
-        <td id="grades"> {{row.mediaaluno}} </td>
-        <td id="action">
-          <button type="button" class="btn btn-outline-primary btn-sm" (click)="update(row['id'])">
-            <i class="fa fa-pencil-square-o"></i>
-          </button>
-          <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(row['id'])">
-            <i class="fa fa-trash"></i>
-          </button>
-        </td>
+        <ng-container *ngIf="rowsInstitution.id == row.faculdades_id">
+          <td scope="row"> {{ row.nome }} </td>
+          <td id="grades"> {{row.notacurso}} </td>
+          <td id="grades"> {{row.mediaaluno}} </td>
+          <td id="action">
+            <button type="button" class="btn btn-outline-primary btn-sm" (click)="update(row['id'])">
+              <i class="fa fa-pencil-square-o"></i>
+            </button>
+            <button type="button" class="btn btn-outline-danger btn-sm" (click)="delete(row['id'])">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </ng-container>
       </tr>
     </tbody>
   </table>
