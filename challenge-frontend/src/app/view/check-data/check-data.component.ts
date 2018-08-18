@@ -34,7 +34,6 @@ export class CheckDataComponent implements OnInit {
     this.acRoute.params.subscribe((dataParam: any) => {
       this.apiService.get('faculdades/' + dataParam.id).subscribe((data: InstitutionModel[]) => {
         this.rowsInstitution = data;
-        console.log(this.rowsInstitution);
       });
     });
   }

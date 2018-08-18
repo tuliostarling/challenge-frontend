@@ -22,17 +22,17 @@ export class EditCourseComponent implements OnInit {
 
   public courses: CoursesModel = new CoursesModel();
   public rowsInstitution: Array<InstitutionModel>;
-  id_faculdade: number;
 
   ngOnInit() {
     this.acRoute.params.subscribe((data: any) => {
       if (data) {
         this.apiService.get('cursos/' + data.id).subscribe((data: CoursesModel) => {
           this.courses = data;
-          this.id_faculdade = this.courses.faculdades_id;
         });
       }
     });
+    
+    this.getInstitution();
   }
 
   getInstitution() {
